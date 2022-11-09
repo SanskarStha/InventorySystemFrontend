@@ -39,7 +39,7 @@
       </div>
       <div class="col-md-6">
         <label for="inputQuantity" class="form-label">Quantity</label>
-        <input v-model="item.quantity" type="text" class="form-control" id="inputYear" placeholder="quantity">
+        <input v-model="item.quantity" type="text" class="form-control" id="inputQuantity" placeholder="quantity">
       </div>
       <div class="col-md-6">
         <label for="inputLocation" class="form-label">Location</label>
