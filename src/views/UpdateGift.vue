@@ -2,8 +2,16 @@
   <div>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item"><a href="#">Gifts</a></li>
+        <li class="breadcrumb-item">
+          <router-link to="/" style="text-decoration: none;">
+            <a href="#">Home</a>
+          </router-link>
+        </li>
+        <li class="breadcrumb-item">
+          <router-link to="/gifts" style="text-decoration: none;">
+            <a href="#">Gifts</a>
+          </router-link>
+        </li>
         <li class="breadcrumb-item active" aria-current="page">Gift Detail</li>
       </ol>
     </nav>

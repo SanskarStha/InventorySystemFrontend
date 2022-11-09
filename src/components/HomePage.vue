@@ -6,7 +6,7 @@
           <div class="card py-5">
             <h3 class="card-title">Inventory System</h3>
             <div class="card-body">
-              <p>Nothing in here</p>
+              <p>Welcome to our platform!</p>
             </div>
           </div>
 

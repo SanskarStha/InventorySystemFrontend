@@ -2,8 +2,16 @@
   <div>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item"><a href="#">Games</a></li>
+        <li class="breadcrumb-item">
+          <router-link to="/" style="text-decoration: none;">
+            <a href="#">Home</a>
+          </router-link>
+        </li>
+        <li class="breadcrumb-item">
+          <router-link to="/games" style="text-decoration: none;">
+            <a href="#">Games</a>
+          </router-link>
+        </li>
         <li class="breadcrumb-item active" aria-current="page">Game Detail</li>
       </ol>
     </nav>
@@ -38,7 +46,7 @@
         <input v-model="item.location" type="text" class="form-control" id="inputLocation"
           placeholder="location name in warehouse">
       </div>
-    
+
       <div class="col-md-6">
         <label for="inputDescription" class="form-label">Description</label>
         <textarea v-model="item.description" class="form-control" id="exampleFormControlTextarea1" rows="5"
