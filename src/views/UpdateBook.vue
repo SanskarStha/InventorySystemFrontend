@@ -79,7 +79,7 @@
 import { useRoute } from "vue-router";
 import { ref, onMounted } from "vue";
 export default {
-  name: 'UpdateBookView',
+  name: 'UpdateBook',
   setup() {
     const item = ref({});
     const route = useRoute();
