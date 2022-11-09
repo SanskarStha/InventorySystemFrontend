@@ -37,7 +37,7 @@
           </div>
         </router-link>
 
-        <router-link to="/books" class=" col me-3 card btn btn-outline-dark"
+        <router-link to="/gifts" class=" col me-3 card btn btn-outline-dark"
           >
           <div class="ratio ratio-1x1">
             <img class="card-img-top" style="object-fit:cover" src="../assets/gifts.jpeg" alt="Card image cap">
@@ -47,7 +47,7 @@
           </div>
         </router-link>
 
-        <router-link to="/books" class=" col me-3 card btn btn-outline-dark"
+        <router-link to="/materials" class=" col me-3 card btn btn-outline-dark"
           >
           <div class="ratio ratio-1x1">
             <img class="card-img-top" style="object-fit:cover" src="../assets/materials.jpeg" alt="Card image cap">
