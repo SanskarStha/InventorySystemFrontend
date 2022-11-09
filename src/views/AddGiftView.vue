@@ -54,15 +54,8 @@
         <textarea v-model="item.remarks" class="form-control" id="exampleFormControlTextarea1" rows="5"
           placeholder="Internal remarks"></textarea>
       </div>
-      <div class="container my-4">
-        <div class="row">
-          <div class="col-6">
-            <button type="submit" class="btn btn-primary float-start">Update</button>
-          </div>
-          <div class="col-6">
-            <button type="button" class="btn btn-danger float-end" @click="deleteItem()">Delete</button>
-          </div>
-        </div>
+      <div class="col-md-1">
+        <button type="submit" class="btn btn-primary">Save</button>
       </div>
     </form>
   </div>
