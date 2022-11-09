@@ -4,7 +4,7 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">Home</a></li>
         <li class="breadcrumb-item"><a href="#">Books</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Book Detail</li>
+        <li class="breadcrumb-item active" aria-current="page">Game Detail</li>
       </ol>
     </nav>
     <form class="row g-3 mx-5 mb-3" @submit.prevent="updateItem()">
@@ -16,9 +16,12 @@
         <label for="inputCategory" class="form-label">Category</label>
         <select id="inputCategory" class="form-select" v-model="item.category">
           <option selected>Open this select menu</option>
-          <option value="Action">Action</option>
-          <option value="Horror">Horror</option>
-          <option value="Comedy">Comedy</option>
+          <option value="Survival and horror">Survival and horror</option>
+          <option value="Shooters">Shooters</option>
+          <option value="Sandbox">Sandbox</option>
+          <option value="Action-adventure">Action-adventure</option>
+          <option value="Puzzlers and party games">Puzzlers and party games</option>
+          <option value="Real-time strategy">Real-time strategy</option>
         </select>
       </div>
       <div class="col-md-6">
@@ -38,11 +41,6 @@
         <input v-model="item.location" type="text" class="form-control" id="inputLocation"
           placeholder="location name in warehouse">
       </div>
-      <div class="col-md-6">
-        <label for="inputISBN" class="form-label">ISBN</label>
-        <input v-model="item.ISBN" type="text" class="form-control" id="inputISBN" placeholder="ISBN number">
-      </div>
-     
       <div class="col-md-6">
         <label for="inputDescription" class="form-label">Description</label>
         <textarea v-model="item.description" class="form-control" id="exampleFormControlTextarea1" rows="5"
