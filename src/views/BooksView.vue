@@ -10,7 +10,7 @@ import BooksPage from '@/components/BooksPage.vue'
 
 
 export default {
-  name: 'HomeView',
+  name: 'BooksView',
   components: {
     BooksPage
   }

@@ -10,7 +10,7 @@ import GamesPage from '@/components/GamesPage.vue'
 
 
 export default {
-  name: 'HomeView',
+  name: 'GamesView',
   components: {
     GamesPage
   }
