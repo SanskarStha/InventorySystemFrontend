@@ -2,24 +2,37 @@
   <div class="home">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
+        <router-link to="/" style="text-decoration: none;">
         <a class="navbar-brand" href="#">Inventory</a>
+        </router-link>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            
             <li class="nav-item">
-              <a class="nav-link active" href="#">Books</a>
+              <router-link to="/books" style="text-decoration: none;">
+                <a class="nav-link" href="#">Books</a>
+              </router-link>
+              
+            </li>
+       
+            <li class="nav-item">
+              <router-link to="/games" style="text-decoration: none;">
+              <a class="nav-link" href="#">Games</a>
+              </router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#">Games</a>
+              <router-link to="/gifts" style="text-decoration: none;">
+              <a class="nav-link" href="#">Gifts</a>
+              </router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#">Gifts</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Materials</a>
+              <router-link to="/materials" style="text-decoration: none;">
+              <a class="nav-link" href="#">Materials</a>
+              </router-link>
             </li>
           </ul>
           <form class="d-flex" @submit.prevent="searchItem()">
