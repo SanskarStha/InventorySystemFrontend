@@ -19,6 +19,9 @@
           <option value="Action">Action</option>
           <option value="Horror">Horror</option>
           <option value="Comedy">Comedy</option>
+          <option value="Drama">Drama</option>
+          <option value="Romance">Romance</option>
+
         </select>
       </div>
       <div class="col-md-6">
