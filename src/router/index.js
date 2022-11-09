@@ -7,8 +7,12 @@ import SearchPage from '../views/SearchPage.vue'
 import GamesView from '../views/GamesView.vue'
 import AddGameView from '../views/AddGameView.vue'
 import UpdateGame from '../views/UpdateGame.vue'
-// import GiftsView from '../views/GiftsView.vue'
-// import MaterialsView from '../views/MaterialsView.vue'
+import GiftsView from '../views/GiftsView.vue'
+import AddGiftView from '../views/AddGiftView.vue'
+import UpdateGift from '../views/UpdateGift.vue'
+import MaterialsView from '../views/MaterialsView.vue'
+import AddMaterialView from '../views/AddMaterialView.vue'
+import UpdateMaterial from '../views/UpdateMaterial.vue'
 
 const routes = [
   {
@@ -29,9 +33,6 @@ const routes = [
   {
     path: '/book/detail/:id',
     name: 'updateBook',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: UpdateBook
   },
   {
@@ -47,34 +48,43 @@ const routes = [
   {
     path: '/game/detail/:id',
     name: 'updateGame',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: UpdateGame
   },
   {
     path: '/search',
     name: 'SearchPage',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: SearchPage
+  },
+  {
+    path: '/gifts',
+    name: 'gifts',
+    component: GiftsView
+  },
+  {
+    path: '/gift/detail',
+    name: 'addGift',
+    component: AddGiftView
+  },
+  {
+    path: '/gift/detail/:id',
+    name: 'updateGift',
+    component: UpdateGift
+  },
+  {
+    path: '/materials',
+    name: 'materials',
+    component: MaterialsView
+  },
+  {
+    path: '/material/detail',
+    name: 'addMaterial',
+    component: AddMaterialView
+  },
+  {
+    path: '/material/detail/:id',
+    name: 'updateMaterial',
+    component: UpdateMaterial
   }
-  // {
-  //   path: '/games',
-  //   name: 'games',
-  //   component: GamesView
-  // },
-  // {
-  //   path: '/gifts',
-  //   name: 'gifts',
-  //   component: GiftsView
-  // },
-  // {
-  //   path: '/materials',
-  //   name: 'materials',
-  //   component: MaterialsView
-  // }
 
 ]
 
