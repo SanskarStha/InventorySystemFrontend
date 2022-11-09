@@ -23,8 +23,9 @@
       <router-link :to="`/gift/detail/${item._id}`" class="card btn btn-outline-dark"
         v-for="item in inventory.slice(0, 3)" :key="item._id">
         <div class="ratio ratio-1x1">
-          <img :src="item.imageURL" class="card-img-top" style="max-height:300px" alt="...">
+          <img :src="item.imageURL" class="card-img-top" alt="...">
         </div>
+
         <div class="card-body">
           <h5 class="card-title">{{ item.title }}</h5>
           <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
@@ -83,6 +84,8 @@ export default {
 
     const pages = computed(() => {
       var pages = [];
+
+      console.log(currentPage.value, lastPage.value)
 
       for (var i = Math.max(1, currentPage.value - 1); i <= Math.min(lastPage.value, currentPage.value + 1); i++) {
         pages.push(i)
