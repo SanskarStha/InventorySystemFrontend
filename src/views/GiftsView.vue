@@ -1,6 +1,6 @@
 <template>
   <div>
-    <GiftsPage type="Game" />
+    <GiftsPage type="Gift" />
   </div>
 </template>
 
