@@ -5,7 +5,11 @@
         <div class="col-6">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item">
+                <router-link to="/" style="text-decoration: none;">
+                  <a href="#">Home</a>
+                </router-link>
+              </li>
               <li class="breadcrumb-item active" aria-current="page">Search</li>
             </ol>
           </nav>
@@ -89,7 +93,7 @@ export default {
 
       // console.log(currentPage.value, lastPage.value)
 
-      var response = await fetch("/api/search/inventory?keyword=" + route.query.keyword +  "&perPage=" + perPage.value + "&page=" + currentPage.value);
+      var response = await fetch("/api/search/inventory?keyword=" + route.query.keyword + "&perPage=" + perPage.value + "&page=" + currentPage.value);
 
       if (response.ok) {
         var data = await response.json();
