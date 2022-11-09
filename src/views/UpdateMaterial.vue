@@ -27,8 +27,8 @@
         <input v-model="item.imageURL" type="text" class="form-control" id="inputImage" placeholder="Image URL">
       </div>
       <div class="col-md-3">
-        <label for="inputAmount" class="form-label">Amount</label>
-        <input v-model="item.amount" type="text" class="form-control" id="inputAmount" placeholder="amount">
+        <label for="inputQuantity" class="form-label">Quantity</label>
+        <input v-model="item.quantity" type="text" class="form-control" id="inputQuantity" placeholder="quantity">
       </div>
       <div class="col-md-3">
         <label for="inputLocation" class="form-label">Location</label>
