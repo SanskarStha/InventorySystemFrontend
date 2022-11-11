@@ -24,9 +24,12 @@
         <label for="inputCategory" class="form-label">Category</label>
         <select id="inputCategory" class="form-select" v-model="item.category">
           <option selected>Open this select menu</option>
-          <option value="Action">Action</option>
-          <option value="Horror">Horror</option>
-          <option value="Comedy">Comedy</option>
+          <option value="Survival and horror">Survival and horror</option>
+          <option value="Shooters">Shooters</option>
+          <option value="Sandbox">Sandbox</option>
+          <option value="Action-adventure">Action-adventure</option>
+          <option value="Puzzlers and party games">Puzzlers and party games</option>
+          <option value="Real-time strategy">Real-time strategy</option>
         </select>
       </div>
       <div class="col-md-6">
