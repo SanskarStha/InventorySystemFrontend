@@ -37,7 +37,11 @@
         <label for="inputPublisher" class="form-label">Publisher</label>
         <input v-model="item.publisher" type="text" class="form-control" id="inputPublisher" placeholder="publisher">
       </div>
-      <div class="col-md-6">
+      <div class="col-md-3">
+        <label for="inputYear" class="form-label">Year</label>
+        <input v-model="item.year" type="text" class="form-control" id="inputYear" placeholder="year">
+      </div>
+      <div class="col-md-3">
         <label for="inputQuantity" class="form-label">Quantity</label>
         <input v-model="item.quantity" type="text" class="form-control" id="inputQuantity" placeholder="quantity">
       </div>
@@ -71,6 +75,7 @@ export default {
   name: 'AddGameView',
   setup() {
     const item = ref({});
+    item.value.type = "Game";
 
     const insertItem = async function () {
 

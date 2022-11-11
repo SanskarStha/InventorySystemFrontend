@@ -67,6 +67,7 @@ export default {
   name: 'AddMaterialView',
   setup() {
     const item = ref({});
+    item.value.type = "Material";
 
     const insertItem = async function () {
 

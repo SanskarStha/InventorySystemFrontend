@@ -78,6 +78,7 @@ export default {
   name: 'AddBookView',
   setup() {
     const item = ref({});
+    item.value.type = "Book";
 
     const insertItem = async function () {
 

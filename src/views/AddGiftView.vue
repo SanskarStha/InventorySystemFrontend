@@ -76,6 +76,7 @@ export default {
   name: 'AddGiftView',
   setup() {
     const item = ref({});
+    item.value.type = "Gift";
 
     const insertItem = async function () {
 
