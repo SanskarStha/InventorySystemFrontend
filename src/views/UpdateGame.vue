@@ -30,6 +30,8 @@
           <option value="Action-adventure">Action-adventure</option>
           <option value="Puzzlers and party games">Puzzlers and party games</option>
           <option value="Real-time strategy">Real-time strategy</option>
+          <option value="Role-playing">Role-playing</option>
+          <option value="Multiplayer online battle arena">Multiplayer online battle arena</option>
         </select>
       </div>
       <div class="col-12 col-lg-6">
