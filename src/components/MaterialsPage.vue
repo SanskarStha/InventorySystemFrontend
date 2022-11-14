@@ -15,7 +15,7 @@
           </nav>
         </div>
         <div class="col-6">
-          <router-link :to="`/material/detail`">
+          <router-link to="/material/detail">
             <button class="btn btn-primary float-end">Add</button>
           </router-link>
         </div>
