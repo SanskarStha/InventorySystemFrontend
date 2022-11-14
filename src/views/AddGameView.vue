@@ -32,6 +32,7 @@
           <option value="Real-time strategy">Real-time strategy</option>
           <option value="Role-playing">Role-playing</option>
           <option value="Multiplayer online battle arena">Multiplayer online battle arena</option>
+          <option value="Platformer">Platformer</option>
         </select>
       </div>
       <div class="col-12 col-lg-6">
