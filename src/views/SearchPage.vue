@@ -2,7 +2,7 @@
   <div>
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-6">
+        <div class="col-6 col-lg-6">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
