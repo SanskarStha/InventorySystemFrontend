@@ -57,7 +57,7 @@
         <li class="page-item disabled" v-if="currentPage <= 1"><a class="page-link" href="#">Previous</a></li>
         <li class="page-item" v-if="currentPage > 1"><a class="page-link" href="#"
             @click="fetchPage(currentPage--)">Previous</a></li>
-        <li class="page-item" v-for="i in pages" :key="i"><a class="page-link" href="#"
+        <li :class="`page-item${currentPage == i ? ' active':''}`" v-for="i in pages" :key="i"><a class="page-link" href="#"
             @click="fetchPage(currentPage = i)">{{ i }}</a></li>
         <li class="page-item disabled" v-if="currentPage >= lastPage"><a class="page-link" href="#">Next</a></li>
         <li class="page-item" v-if="currentPage < lastPage"><a class="page-link" href="#"
