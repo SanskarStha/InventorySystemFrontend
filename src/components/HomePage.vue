@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <div class="row gx-5">
+    <div v-if="type == 'admin user' || type == 'normal user' " class="row gx-5">
       <router-link to="/books" class="col-12 col-lg-3" style="text-decoration: none; color: black;">
         <div class="card">
 
@@ -61,6 +61,7 @@
           </div>
         </div>
       </router-link>
+
     </div>
 
   </div>
@@ -68,11 +69,21 @@
 
 <script>
 import ChartView from '@/components/ChartView.vue';
+import { ref } from 'vue';
+
 export default {
   name: 'HomePage',
   components: {
     ChartView
-  }
+  },
+  setup() {
+    const type = ref(localStorage.getItem("type") || '');
+
+    return {
+      type
+    }
+  },
+
 }
 </script>
 

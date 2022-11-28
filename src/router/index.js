@@ -13,6 +13,7 @@ import UpdateGift from '../views/UpdateGift.vue'
 import MaterialsView from '../views/MaterialsView.vue'
 import AddMaterialView from '../views/AddMaterialView.vue'
 import UpdateMaterial from '../views/UpdateMaterial.vue'
+import Login from '../views/LoginView.vue'
 
 const routes = [
   {
@@ -84,6 +85,11 @@ const routes = [
     path: '/material/detail/:id',
     name: 'updateMaterial',
     component: UpdateMaterial
+  },
+  {
+    path: '/login',
+    name: 'loginPage',
+    component: Login
   }
 
 ]
