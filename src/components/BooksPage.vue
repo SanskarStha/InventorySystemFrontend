@@ -27,7 +27,7 @@
       <div class="card btn btn-outline-dark" v-for="item in inventory.slice(0, 3)" :key="item._id">
         <router-link :to="`/book/detail/${item._id}`">
           <div class="ratio ratio-1x1">
-            <img :src="item.imageURL" class="card-img-top" style="max-height:300px" alt="...">
+            <img :src="item.imageURL" class="card-img-top" style="max-height:300px" alt="">
           </div>
         </router-link>
         <div class="card-body">
