@@ -49,7 +49,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ item.title }}</h5>
           <p class="card-text">{{ item.description }}</p>
-          <p v-if="item.borrow.length > 0" class="card-text"><small class="text-muted">Borrowed by {{item.borrow[0]._id}}</small></p>
+          <p v-if="item.borrow.length > 0" class="card-text"><small class="text-muted">Borrowed by {{item.borrow[0].full_name}}</small></p>
           <button v-if="item.borrow.length == 0" class="btn btn-primary" @click="updateBorrow(item._id)">Borrow</button>
           <button v-if="item.borrow.length > 0 && item.borrow[0]._id == user._id" class="btn btn-outline-primary" @click="updateReturn(item._id)">Return</button>
         </div>
@@ -164,7 +164,14 @@ export default {
 
       // console.log(currentPage.value, lastPage.value)
 
-      var response = await fetch("/api/inventory?type=" + props.type + "&perPage=" + perPage.value + "&page=" + currentPage.value);
+      var response = await fetch("/api/inventory?type=" + props.type + "&perPage=" + perPage.value + "&page=" + currentPage.value,{
+        headers: {
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+    
+          "x-access-token": user.value.token
+
+        },
+      });
 
       if (response.ok) {
         var data = await response.json();
@@ -177,10 +184,11 @@ export default {
     };
 
     onMounted(function () {
-      fetchPage();
+      
       // alert(props.msg)
       user.value = JSON.parse(localStorage.getItem('user')) || {};
-      console.log(user.value)
+      fetchPage();
+      // console.log(user.value.token)
     });
 
     return {

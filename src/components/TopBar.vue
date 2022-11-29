@@ -79,7 +79,7 @@ export default {
     const logout = function () {
       localStorage.removeItem('user');
       localStorage.removeItem('type');
-      location.reload()
+      location.assign('/')
     }
     return {
       user,

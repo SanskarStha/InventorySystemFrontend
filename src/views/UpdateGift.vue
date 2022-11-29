@@ -86,6 +86,7 @@ export default {
   setup() {
     const item = ref({});
     const route = useRoute();
+    const user = ref({});
 
     const updateItem = async function () {
 
@@ -93,7 +94,8 @@ export default {
         method: "put",
         headers: {
           // 'Content-Type': 'application/x-www-form-urlencoded',
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          "x-access-token": user.value.token
         },
         // body: new URLSearchParams(new FormData(event.target))
         body: JSON.stringify(item.value)
@@ -133,6 +135,7 @@ export default {
 
     onMounted(async function () {
       var response = await fetch("/api/inventory/" + route.params.id);
+      user.value = JSON.parse(localStorage.getItem('user')) || {};
 
       if (response.ok) {
         item.value = await response.json();

@@ -131,7 +131,14 @@ export default {
 
       // console.log(currentPage.value, lastPage.value)
 
-      var response = await fetch("/api/inventory?type=" + props.type + "&perPage=" + perPage.value + "&page=" + currentPage.value);
+      var response = await fetch("/api/inventory?type=" + props.type + "&perPage=" + perPage.value + "&page=" + currentPage.value,{
+        headers: {
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+    
+          "x-access-token": user.value.token
+
+        },
+      });
 
       if (response.ok) {
         var data = await response.json();
@@ -144,8 +151,9 @@ export default {
     };
 
     onMounted(function () {
-      fetchPage();
+    
       user.value = JSON.parse(localStorage.getItem('user')) || {};
+      fetchPage();
       // alert(props.msg)
     });
 

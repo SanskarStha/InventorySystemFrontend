@@ -42,7 +42,9 @@ export default {
 
       if (response.ok) {
         var data = await response.json()
+    
         localStorage.setItem("user", JSON.stringify(data));
+        console.log(data);
 
         // var decoded = jwt_decode(data.token);
         // alert(JSON.stringify(decoded))

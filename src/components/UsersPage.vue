@@ -74,6 +74,7 @@ export default {
     const lastPage = ref(0);
     const perPage = ref(12);
     const currentPage = ref(1);
+    const user = ref({});
 
     const pages = computed(() => {
       var pages = [];
@@ -91,7 +92,14 @@ export default {
 
       // console.log(currentPage.value, lastPage.value)
 
-      var response = await fetch("/api/user?perPage=" + perPage.value + "&page=" + currentPage.value);
+      var response = await fetch("/api/user?perPage=" + perPage.value + "&page=" + currentPage.value,{
+        headers: {
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+    
+          "x-access-token": user.value.token
+
+        },
+      });
 
       if (response.ok) {
         var data = await response.json();
@@ -104,6 +112,8 @@ export default {
     };
 
     onMounted(function () {
+    
+      user.value = JSON.parse(localStorage.getItem('user')) || {};
       fetchPage();
       // alert(props.msg)
     });

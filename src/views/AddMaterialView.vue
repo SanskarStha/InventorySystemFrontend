@@ -62,12 +62,13 @@
 
 <script>
 
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 export default {
   name: 'AddMaterialView',
   setup() {
     const item = ref({});
     item.value.type = "Material";
+    const user = ref({});
 
     const insertItem = async function () {
 
@@ -75,7 +76,8 @@ export default {
         method: "post",
         headers: {
           // 'Content-Type': 'application/x-www-form-urlencoded',
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          "x-access-token": user.value.token
         },
         // body: new URLSearchParams(new FormData(event.target))
         body: JSON.stringify(item.value)
@@ -90,6 +92,11 @@ export default {
         alert(response.statusText)
       }
     };
+
+    onMounted(function () {
+      user.value = JSON.parse(localStorage.getItem('user')) || {};
+      // alert(props.msg)
+    });
 
     return {
       insertItem,

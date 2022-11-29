@@ -71,7 +71,8 @@ export default {
         method: "put",
         headers: {
           // 'Content-Type': 'application/x-www-form-urlencoded',
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          "x-access-token": user.value.token
         },
         // body: new URLSearchParams(new FormData(event.target))
         body: JSON.stringify(user.value)
@@ -111,6 +112,7 @@ export default {
 
     onMounted(async function () {
       var response = await fetch("/api/user/" + route.params.id);
+      user.value = JSON.parse(localStorage.getItem('user')) || {};
 
       if (response.ok) {
         user.value = await response.json();
