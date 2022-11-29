@@ -24,31 +24,36 @@
 
 
     <div class="card-group mx-5">
-      <router-link :to="`/game/detail/${item._id}`" class="card btn btn-outline-dark"
-        v-for="item in inventory.slice(0, 3)" :key="item._id">
-        <div class="ratio ratio-1x1">
-          <img :src="item.imageURL" class="card-img-top" alt="...">
-        </div>
-
+      <div class="card btn btn-outline-dark" v-for="item in inventory.slice(0, 3)" :key="item._id">
+        <router-link :to="`/game/detail/${item._id}`">
+          <div class="ratio ratio-1x1">
+            <img :src="item.imageURL" class="card-img-top" style="max-height:300px" alt="...">
+          </div>
+        </router-link>
         <div class="card-body">
           <h5 class="card-title">{{ item.title }}</h5>
           <p class="card-text">{{ item.description }}</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <p v-if="item.borrow.length > 0" class="card-text"><small class="text-muted">Borrowed by {{item.borrow[0].full_name}}</small></p>
+          <button v-if="item.borrow.length == 0" class="btn btn-primary"  @click="updateBorrow(item._id)">Borrow</button>
+          <button v-if="item.borrow.length > 0 && item.borrow[0]._id == user._id" class="btn btn-outline-primary" @click="updateReturn(item._id)">Return</button>
         </div>
-      </router-link>
+      </div>
     </div>
     <div class="card-group mx-5">
-      <router-link :to="`/game/detail/${item._id}`" class="card btn btn-outline-dark"
-        v-for="item in inventory.slice(3, 6)" :key="item._id">
-        <div class="ratio ratio-1x1">
-          <img :src="item.imageURL" class="card-img-top" alt="...">
-        </div>
+      <div class="card btn btn-outline-dark" v-for="item in inventory.slice(3, 6)" :key="item._id">
+        <router-link :to="`/game/detail/${item._id}`">
+          <div class="ratio ratio-1x1">
+            <img :src="item.imageURL" class="card-img-top" style="max-height:300px" alt="">
+          </div>
+        </router-link>
         <div class="card-body">
           <h5 class="card-title">{{ item.title }}</h5>
           <p class="card-text">{{ item.description }}</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <p v-if="item.borrow.length > 0" class="card-text"><small class="text-muted">Borrowed by {{item.borrow[0]._id}}</small></p>
+          <button v-if="item.borrow.length == 0" class="btn btn-primary" @click="updateBorrow(item._id)">Borrow</button>
+          <button v-if="item.borrow.length > 0 && item.borrow[0]._id == user._id" class="btn btn-outline-primary" @click="updateReturn(item._id)">Return</button>
         </div>
-      </router-link>
+      </div>
     </div>
 
     <!-- <button v-for="i in pages" :key="i" @click="fetchPage(i)">{{ i }}</button> -->
@@ -57,8 +62,8 @@
         <li class="page-item disabled" v-if="currentPage <= 1"><a class="page-link" href="#">Previous</a></li>
         <li class="page-item" v-if="currentPage > 1"><a class="page-link" href="#"
             @click="fetchPage(currentPage--)">Previous</a></li>
-        <li :class="`page-item${currentPage == i ? ' active':''}`" v-for="i in pages" :key="i"><a class="page-link" href="#"
-            @click="fetchPage(currentPage = i)">{{ i }}</a></li>
+        <li :class="`page-item${currentPage == i ? ' active' : ''}`" v-for="i in pages" :key="i"><a class="page-link"
+            href="#" @click="fetchPage(currentPage = i)">{{ i }}</a></li>
         <li class="page-item disabled" v-if="currentPage >= lastPage"><a class="page-link" href="#">Next</a></li>
         <li class="page-item" v-if="currentPage < lastPage"><a class="page-link" href="#"
             @click="fetchPage(currentPage++)">Next</a></li>
@@ -72,6 +77,7 @@
 
 
 <script>
+// import { useRoute } from "vue-router";
 import { ref, onMounted, computed } from "vue";
 export default {
   name: 'GamesPage',
@@ -83,11 +89,13 @@ export default {
     const lastPage = ref(0);
     const perPage = ref(6);
     const currentPage = ref(1);
+    // const route = useRoute();
+    const user = ref({});
+
+
 
     const pages = computed(() => {
       var pages = [];
-
-      console.log(currentPage.value, lastPage.value)
 
       for (var i = Math.max(1, currentPage.value - 1); i <= Math.min(lastPage.value, currentPage.value + 1); i++) {
         pages.push(i)
@@ -95,6 +103,62 @@ export default {
 
       return pages;
     });
+
+    const updateBorrow = async function (id) {
+      
+
+      console.log(user.value.token)
+
+      var response = await fetch("/api/user/borrow/" + id, {
+        method: "put",
+        headers: {
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+    
+          "x-access-token": user.value.token
+
+        },
+        // body: new URLSearchParams(new FormData(event.target))
+        // body: JSON.stringify(item.value)
+
+      });
+
+      if (response.ok) {
+
+        var text = await response.text();
+        alert(text);
+        location.reload()
+      } else {
+        alert(response.statusText)
+      }
+    };
+
+    const updateReturn = async function (id) {
+      
+
+      console.log(user.value.token)
+
+      var response = await fetch("/api/user/return/" + id, {
+        method: "put",
+        headers: {
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+    
+          "x-access-token": user.value.token
+
+        },
+        // body: new URLSearchParams(new FormData(event.target))
+        // body: JSON.stringify(item.value)
+
+      });
+
+      if (response.ok) {
+
+        var text = await response.text();
+        alert(text);
+        location.reload()
+      } else {
+        alert(response.statusText)
+      }
+    };
 
     const fetchPage = async function () {
 
@@ -115,6 +179,8 @@ export default {
     onMounted(function () {
       fetchPage();
       // alert(props.msg)
+      user.value = JSON.parse(localStorage.getItem('user')) || {};
+      console.log(user.value)
     });
 
     return {
@@ -122,7 +188,10 @@ export default {
       pages,
       fetchPage,
       currentPage,
-      lastPage
+      lastPage,
+      updateBorrow,
+      updateReturn,
+      user
     };
   },
 };
