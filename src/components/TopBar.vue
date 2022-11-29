@@ -63,8 +63,14 @@ export default {
 
     const keyword = ref();
     const type = ref(localStorage.getItem("type"));
+    const user = ref({});
 
-    onMounted(() => { console.log(localStorage.getItem("type")); })
+    onMounted(() => {
+      user.value = localStorage.getItem("user");
+      // console.log(user.value.)
+      // console.log(localStorage.getItem("type"));
+      // console.log(localStorage.getItem("user"));
+  })
 
     const searchItem = async function () {
       location.assign('/search?keyword=' + keyword.value)
@@ -76,6 +82,7 @@ export default {
       location.reload()
     }
     return {
+      user,
       searchItem,
       keyword,
       type,

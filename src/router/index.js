@@ -14,6 +14,10 @@ import MaterialsView from '../views/MaterialsView.vue'
 import AddMaterialView from '../views/AddMaterialView.vue'
 import UpdateMaterial from '../views/UpdateMaterial.vue'
 import Login from '../views/LoginView.vue'
+import UsersView from '../views/UsersView.vue'
+import AddUserView from '../views/AddUserView.vue'
+import UpdateUser from '../views/UpdateUser.vue'
+
 
 const routes = [
   {
@@ -90,7 +94,22 @@ const routes = [
     path: '/login',
     name: 'loginPage',
     component: Login
-  }
+  },
+  {
+    path: '/users',
+    name: 'users',
+    component: UsersView
+  },
+  {
+    path: '/user/detail',
+    name: 'addUser',
+    component: AddUserView
+  },
+  {
+    path: '/user/detail/:id',
+    name: 'updateUser',
+    component: UpdateUser
+  },
 
 ]
 
