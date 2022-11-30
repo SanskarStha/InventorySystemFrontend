@@ -111,6 +111,10 @@ export default {
 
         var response = await fetch("/api/inventory/" + route.params.id, {
           method: "delete",
+          headers: {
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+            "x-access-token": user.value.token
+          },
         });
 
         if (response.ok) {
@@ -125,8 +129,15 @@ export default {
     }
 
     onMounted(async function () {
-      var response = await fetch("/api/inventory/" + route.params.id);
       user.value = JSON.parse(localStorage.getItem('user')) || {};
+      var response = await fetch("/api/inventory/" + route.params.id, {
+        headers: {
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+         
+          "x-access-token": user.value.token
+        },
+      });
+    
 
       if (response.ok) {
         item.value = await response.json();

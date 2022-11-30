@@ -32,7 +32,7 @@
             <p style="text-align:center;" class="card-text">
               {{ user.email }}
             </p>
-            <router-link :to="`/user/detail/${user._id}`">
+            <router-link :to="`/user/detail/${user._id}`" style="text-decoration: none;">
               <p style="text-align:center;" class="card-text">
                 Update
               </p>

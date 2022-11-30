@@ -63,16 +63,19 @@ export default {
   name: 'UpdateGame',
   setup() {
     const user = ref({});
+    const loggedInUser = ref({});
     const route = useRoute();
 
     const updateItem = async function () {
-
+     
       var response = await fetch("/api/user/" + route.params.id, {
+
+        
         method: "put",
         headers: {
           // 'Content-Type': 'application/x-www-form-urlencoded',
           'Content-Type': 'application/json',
-          "x-access-token": user.value.token
+          "x-access-token": loggedInUser.value.token
         },
         // body: new URLSearchParams(new FormData(event.target))
         body: JSON.stringify(user.value)
@@ -97,6 +100,10 @@ export default {
 
         var response = await fetch("/api/user/" + route.params.id, {
           method: "delete",
+          headers: {
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+          "x-access-token": loggedInUser.value.token
+        },
         });
 
         if (response.ok) {
@@ -111,8 +118,14 @@ export default {
     }
 
     onMounted(async function () {
-      var response = await fetch("/api/user/" + route.params.id);
-      user.value = JSON.parse(localStorage.getItem('user')) || {};
+      loggedInUser.value = JSON.parse(localStorage.getItem('user')) || {};
+      var response = await fetch("/api/user/" + route.params.id,{
+        headers: {
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+          "x-access-token": loggedInUser.value.token
+        },
+      });
+     
 
       if (response.ok) {
         user.value = await response.json();
