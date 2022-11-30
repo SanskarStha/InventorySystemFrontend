@@ -110,7 +110,7 @@ export default {
         method: "post",
         headers: {
           // 'Content-Type': 'application/x-www-form-urlencoded',
-          'Content-Type': 'application/json',
+          // 'Content-Type': 'application/json',
           "x-access-token": user.value.token
         },
         // body: new URLSearchParams(new FormData(event.target))
