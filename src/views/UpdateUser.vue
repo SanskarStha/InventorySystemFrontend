@@ -8,7 +8,7 @@
           </router-link>
         </li>
         <li class="breadcrumb-item">
-          <router-link to="/games" style="text-decoration: none;">
+          <router-link to="/users" style="text-decoration: none;">
             <a href="#">Users</a>
           </router-link>
         </li>
